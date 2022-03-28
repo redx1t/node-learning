@@ -10,6 +10,12 @@ app.get("/products/:id", (req, res) => {
   res.json(product.find(() => {}));
 });
 
+app.get("/products", (req, res) => {
+  //access query parameters
+  console.log(req.query);
+  res.json(product.find(() => {}));
+});
+
 //catch 404
 app.all("*", (req, res) => {
   res.status(404).send("Not found");
