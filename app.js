@@ -9,6 +9,10 @@ const logger = (req, res, next) => {
 //for using middleware globally on the app
 
 app.use(logger);
+
+//to specific extension middleware application
+app.use("/api", logger);
+
 app.get("/", (req, res) => {
   res.send("Homepage");
 });
