@@ -5,6 +5,10 @@ const logger = (req, res, next) => {
   console.log(req.url);
   next();
 };
+
+//for using middleware globally on the app
+
+app.use(logger);
 app.get("/", (req, res) => {
   res.send("Homepage");
 });
@@ -13,6 +17,7 @@ app.get("/products/:id", (req, res) => {
   res.json(product.find(() => {}));
 });
 
+//for url specific middleware
 app.get("/products", logger, (req, res) => {
   //access query parameters
   console.log(req.query);
